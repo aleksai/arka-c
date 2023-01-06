@@ -9,7 +9,7 @@
 
 #include "main.h"
 
-#define MAX 80
+#define MAX 55296
 #define PORT 8080
 #define SA struct sockaddr
 
