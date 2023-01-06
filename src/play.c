@@ -71,8 +71,6 @@ void play(void)
     free(BlackImage);
     BlackImage = NULL;
 	DEV_ModuleExit();
-
-    exit(0);
 }
 
 
