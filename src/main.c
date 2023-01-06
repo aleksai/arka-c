@@ -33,7 +33,7 @@ void func(int connfd)
         //     ;
    
         // // and send that buffer to client
-        // write(connfd, buff, sizeof(buff));
+        write(connfd, "1", sizeof("1"));
 
         playSequence();
    
