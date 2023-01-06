@@ -98,6 +98,6 @@ int main()
     func(connfd);
    
     // After chatting close the socket
-    close(sockfd);
+    // close(sockfd);
     return 0;
 }
