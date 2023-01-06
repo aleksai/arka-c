@@ -40,10 +40,10 @@ void play(void)
     // /* GUI */
     printf("drawing...\r\n");
     // /*2.Drawing on the image*/
-    Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
-    Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    Paint_DrawLine(20, 10, 70, 60, 0xFF0000, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawLine(70, 10, 20, 60, 0xFF0000, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawLine(170, 15, 170, 55, 0xFF0000, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    Paint_DrawLine(150, 35, 190, 35, 0xFF0000, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
 
     Paint_DrawRectangle(20, 10, 70, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
     Paint_DrawRectangle(85, 10, 130, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
