@@ -2,5 +2,7 @@
 #define _TRST_H_
 
 void play(void);
+void refresh(void);
+void stop(void);
 
 #endif

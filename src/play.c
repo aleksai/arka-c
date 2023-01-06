@@ -38,39 +38,60 @@ void play(void)
     Paint_Clear(BLACK);
 
     // /* GUI */
-    printf("drawing...\r\n");
+    // printf("drawing...\r\n");
     // /*2.Drawing on the image*/
-    Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
-    Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    // Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    // Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
 
-    Paint_DrawRectangle(20, 10, 70, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawRectangle(85, 10, 130, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawRectangle(20, 10, 70, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawRectangle(85, 10, 130, 60, BLUE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
 
-    Paint_DrawCircle(170, 35, 20, GREEN, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(170, 85, 20, GREEN, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawCircle(170, 35, 20, GREEN, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(170, 85, 20, GREEN, DOT_PIXEL_1X1, DRAW_FILL_FULL);
 
-    Paint_DrawString_EN(5, 70, "hello world", &Font16, WHITE, BLACK);
-    Paint_DrawString_EN(5, 90, "waveshare", &Font20, RED, IMAGE_BACKGROUND);
+    // Paint_DrawString_EN(5, 70, "hello world", &Font16, WHITE, BLACK);
+    // Paint_DrawString_EN(5, 90, "waveshare", &Font20, RED, IMAGE_BACKGROUND);
 
     // Paint_DrawNum(20, 200, 123456789, &Font20, BLUE, IMAGE_BACKGROUND);
         
     // /*3.Refresh the picture in RAM to LCD*/
     LCD_1in3_Display(BlackImage);
-    DEV_Delay_ms(20);
-    
-    // /* show bmp */
-	// printf("show bmp\r\n");
-	// GUI_ReadBmp("./pic/pic.bmp");
-    
-    // LCD_1in3_Display(BlackImage);
-    // DEV_Delay_ms(2000);
-    
-    /* Module Exit */
+    // DEV_Delay_ms(20);
+
     free(BlackImage);
     BlackImage = NULL;
-	DEV_ModuleExit();
+}
+
+void refresh(void)
+{
+    UWORD *BlackImage;
+    UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
+    printf("Imagesize = %d\r\n", Imagesize);
+    if((BlackImage = (UWORD *)malloc(Imagesize)) == NULL) {
+        printf("Failed to apply for black memory...\r\n");
+        exit(0);
+    }
+
+    Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, BLACK, 16);
+    Paint_Clear(BLACK);
+
+    Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+
+    LCD_1in3_Display(BlackImage);
+    // DEV_Delay_ms(20);
+
+    free(BlackImage);
+    BlackImage = NULL;
+}
+
+void stop(void)
+{
+    DEV_ModuleExit();
 }
 
 
