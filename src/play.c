@@ -23,7 +23,7 @@ void play(void)
     /* LCD Init */
 	printf("1.3inch LCD demo...\r\n");
 	LCD_1in3_Init(HORIZONTAL);
-	LCD_1in3_Clear(WHITE);
+	LCD_1in3_Clear(BLACK);
     
     UWORD *BlackImage;
     UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
@@ -34,17 +34,12 @@ void play(void)
     }
     // printf("size = %d\r\n",sizeof(BlackImage) / sizeof(UWORD));
     // /*1.Create a new image cache named IMAGE_RGB and fill it with white*/
-    Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, WHITE, 16);
-    Paint_Clear(WHITE);
+    Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, BLACK, 16);
+    Paint_Clear(BLACK);
 
     // /* GUI */
     printf("drawing...\r\n");
     // /*2.Drawing on the image*/
-    Paint_DrawPoint(5, 10, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);//240 240
-    Paint_DrawPoint(5, 25, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
-    Paint_DrawPoint(5, 40, BLACK, DOT_PIXEL_3X3, DOT_STYLE_DFT);
-    Paint_DrawPoint(5, 55, BLACK, DOT_PIXEL_4X4, DOT_STYLE_DFT);
-
     Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
     Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
     Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
@@ -76,7 +71,7 @@ void play(void)
     free(BlackImage);
     BlackImage = NULL;
 	DEV_ModuleExit();
-    
+
     exit(0);
 }
 
