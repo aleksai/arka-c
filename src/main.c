@@ -17,7 +17,7 @@
 void func(int connfd)
 {
     char buff[MAX];
-    int n;
+    // int n;
     // infinite loop for chat
     for (;;) {
         bzero(buff, MAX);
@@ -26,7 +26,7 @@ void func(int connfd)
         read(connfd, buff, sizeof(buff));
         // print buffer which contains the client contents
         printf("From client: %s\n");
-        printf(sizeof(buff));
+        // printf(sizeof(buff));
         // bzero(buff, MAX);
         // n = 0;
         // // copy server message in the buffer
