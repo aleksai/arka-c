@@ -33,9 +33,9 @@ void func(int connfd)
         //     ;
    
         // // and send that buffer to client
-        write(connfd, "1", sizeof("1"));
+        // write(connfd, "1", sizeof("1"));
 
-        playSequence();
+        // playSequence();
    
         // if msg contains "Exit" then server exit and chat ended.
         if (strncmp("exit", buff, 4) == 0) {
