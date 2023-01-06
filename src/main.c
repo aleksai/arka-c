@@ -35,11 +35,11 @@ void func(int connfd)
         // // and send that buffer to client
         // write(connfd, buff, sizeof(buff));
 
-        refresh();
+        playSequence();
    
         // if msg contains "Exit" then server exit and chat ended.
         if (strncmp("exit", buff, 4) == 0) {
-            stop();
+            stopScreen();
             printf("Server Exit...\n");
             break;
         }
@@ -48,7 +48,7 @@ void func(int connfd)
 
 int main()
 {
-    play();
+    initScreen();
 
     int sockfd, connfd, len;
     struct sockaddr_in servaddr, cli;

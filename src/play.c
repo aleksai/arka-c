@@ -9,7 +9,7 @@
 #include <stdlib.h>		//exit()
 #include <signal.h>     //signal()
 
-void play(void)
+void initScreen(void)
 {
     // Exception handling:ctrl + c
     signal(SIGINT, Handler_1in3_LCD);
@@ -64,8 +64,10 @@ void play(void)
     BlackImage = NULL;
 }
 
-void refresh(void)
+void playSequence(void)
 {
+    LCD_1in3_Clear(BLACK);
+    
     UWORD *BlackImage;
     UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
     printf("Imagesize = %d\r\n", Imagesize);
@@ -89,7 +91,7 @@ void refresh(void)
     BlackImage = NULL;
 }
 
-void stop(void)
+void stopScreen(void)
 {
     DEV_ModuleExit();
 }

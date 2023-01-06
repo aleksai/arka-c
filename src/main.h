@@ -1,8 +1,8 @@
 #ifndef _TRST_H_
 #define _TRST_H_
 
-void play(void);
-void refresh(void);
-void stop(void);
+void initScreen(void);
+void playSequence(void);
+void stopScreen(void);
 
 #endif
