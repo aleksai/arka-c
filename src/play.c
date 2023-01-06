@@ -58,7 +58,7 @@ void play(void)
         
     // /*3.Refresh the picture in RAM to LCD*/
     LCD_1in3_Display(BlackImage);
-    DEV_Delay_ms(10000);
+    DEV_Delay_ms(20);
     
     // /* show bmp */
 	// printf("show bmp\r\n");
