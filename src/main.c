@@ -26,11 +26,11 @@ void func(int connfd)
         read(connfd, buff, sizeof(buff));
         // print buffer which contains the client contents
         printf("From client: %s");
-        // bzero(buff, MAX);
-        // n = 0;
-        // // copy server message in the buffer
-        // while ((buff[n++] = getchar()) != '\n')
-        //     ;
+        bzero(buff, MAX);
+        n = 0;
+        // copy server message in the buffer
+        while ((buff[n++] = getchar()) != '\n')
+            ;
    
         // // and send that buffer to client
         // write(connfd, "1", sizeof("1"));
