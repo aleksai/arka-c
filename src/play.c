@@ -88,7 +88,7 @@ void playSequence(char* sequence)
             int col;
             col = (i - 576 * f) % 24;
             printf("%d %d\n", row, col);
-            Paint_DrawRectangle(row, col * 20, 30, 50, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+            // Paint_DrawRectangle(row, col * 20, 30, 50, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
         }
 
         LCD_1in3_Display(BlackImage);
