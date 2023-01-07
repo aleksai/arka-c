@@ -84,9 +84,11 @@ void playSequence(char* sequence)
         size_t i;
         for (i = 576 * f; i < 576 * (f + 1); i++) {
             int row;
-            row = i - 576 * f;
-            printf("%d", row);
-            // Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL)
+            row = (i - 576 * f) / 24;
+            int col;
+            col = (i - 576 * f) % 24;
+            printf("%d %d\n", row, col);
+            Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL)
         }
 
         LCD_1in3_Display(BlackImage);
