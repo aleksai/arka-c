@@ -87,7 +87,7 @@ void playSequence(char* sequence)
             row = (i - 576 * f) / 24;
             int col;
             col = (i - 576 * f) % 24;
-            printf("%s", sequence[i])
+            printf("%s", sequence[i]);
             Paint_DrawRectangle(2 + col * 10, 2 + row * 10, 10 + col * 10, 10 + row * 10, sequence[i] == "1" ? WHITE : BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
         }
 
