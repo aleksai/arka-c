@@ -97,6 +97,8 @@ void playSequence(char* sequence)
         free(BlackImage);
         BlackImage = NULL;
     }
+
+    playSequence(sequence);
 }
 
 void stopScreen(void)
