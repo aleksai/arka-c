@@ -66,33 +66,35 @@ void initScreen(void)
 
 void playSequence(char* sequence)
 {
-    size_t i;
-    for (i = 0; sequence[i] != "."; i++)
-        printf("%s", sequence[i]);
+    size_t f;
+    for (f = 0; f < 24; f++) {
+        LCD_1in3_Clear(BLACK);
+        
+        UWORD *BlackImage;
+        UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
+        printf("Imagesize = %d\r\n", Imagesize);
+        if((BlackImage = (UWORD *)malloc(Imagesize)) == NULL) {
+            printf("Failed to apply for black memory...\r\n");
+            exit(0);
+        }
 
-    LCD_1in3_Clear(BLACK);
-    
-    UWORD *BlackImage;
-    UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
-    printf("Imagesize = %d\r\n", Imagesize);
-    if((BlackImage = (UWORD *)malloc(Imagesize)) == NULL) {
-        printf("Failed to apply for black memory...\r\n");
-        exit(0);
+        Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, BLACK, 16);
+        Paint_Clear(BLACK);
+
+        size_t i;
+        for (i = 576 * f; i < 576 * (f + 1); i++) {
+            int row;
+            row = i - 576 * f;
+            printf("%d", row);
+            // Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL)
+        }
+
+        LCD_1in3_Display(BlackImage);
+        DEV_Delay_ms(20);
+
+        free(BlackImage);
+        BlackImage = NULL;
     }
-
-    Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, BLACK, 16);
-    Paint_Clear(BLACK);
-
-    Paint_DrawLine(20, 10, 70, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(70, 10, 20, 60, RED, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(170, 15, 170, 55, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
-    Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
-
-    LCD_1in3_Display(BlackImage);
-    DEV_Delay_ms(20);
-
-    free(BlackImage);
-    BlackImage = NULL;
 }
 
 void stopScreen(void)
