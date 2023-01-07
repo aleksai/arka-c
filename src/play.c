@@ -81,14 +81,16 @@ void playSequence(char* sequence)
         Paint_NewImage(BlackImage, LCD_WIDTH, LCD_HEIGHT, 0, BLACK, 16);
         Paint_Clear(BLACK);
 
+        char one;
+        one = "1";
         size_t i;
         for (i = 576 * f; i < 576 * (f + 1); i++) {
             int row;
             row = (i - 576 * f) / 24;
             int col;
             col = (i - 576 * f) % 24;
-            printf("%s", sequence[i]);
-            Paint_DrawRectangle(2 + col * 10, 2 + row * 10, 10 + col * 10, 10 + row * 10, sequence[i] == "1" ? WHITE : BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+            printf("%c", sequence[i]);
+            Paint_DrawRectangle(2 + col * 10, 2 + row * 10, 10 + col * 10, 10 + row * 10, sequence[i] == one ? WHITE : BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
         }
 
         LCD_1in3_Display(BlackImage);
