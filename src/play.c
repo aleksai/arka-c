@@ -66,6 +66,11 @@ void initScreen(void)
 
 void playSequence(char* sequence)
 {
+    int i;
+    for (i = 0; i < sizeof(sequence); ++i) {
+        printf("%d", sequence[i]);
+    }
+
     LCD_1in3_Clear(BLACK);
     
     UWORD *BlackImage;
