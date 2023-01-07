@@ -64,7 +64,7 @@ void initScreen(void)
     BlackImage = NULL;
 }
 
-void playSequence(void)
+void playSequence(char* sequence)
 {
     LCD_1in3_Clear(BLACK);
     
@@ -85,7 +85,7 @@ void playSequence(void)
     Paint_DrawLine(150, 35, 190, 35, RED, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
 
     LCD_1in3_Display(BlackImage);
-    // DEV_Delay_ms(20);
+    DEV_Delay_ms(20);
 
     free(BlackImage);
     BlackImage = NULL;

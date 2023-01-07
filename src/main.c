@@ -34,7 +34,9 @@ void func(int connfd)
 
         if (strstr(buff, ".") != NULL) {
             write(connfd, "1", sizeof("1"));
-            playSequence();
+            playSequence(message);
+            free(message);
+            message = malloc(MAX);
         }
         // printf(sizeof(buff));
         // bzero(buff, MAX);
