@@ -16,7 +16,6 @@
 // Function designed for chat between client and server.
 void func(int connfd)
 {
-    char message[MAX];
     char buff[MAX];
 
     char* message;
