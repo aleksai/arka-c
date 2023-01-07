@@ -92,7 +92,7 @@ void playSequence(char* sequence)
         }
 
         LCD_1in3_Display(BlackImage);
-        DEV_Delay_ms(20);
+        DEV_Delay_ms(40);
 
         free(BlackImage);
         BlackImage = NULL;
