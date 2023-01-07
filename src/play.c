@@ -66,10 +66,9 @@ void initScreen(void)
 
 void playSequence(char* sequence)
 {
-    int i;
-    for (i = 0; i < sizeof(sequence); ++i) {
-        printf("%d", sequence[i]);
-    }
+    size_t i;
+    for (i = 0; sequence[i] != "."; i++)
+        printf("%s", sequence[i]);
 
     LCD_1in3_Clear(BLACK);
     
