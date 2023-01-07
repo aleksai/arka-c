@@ -68,7 +68,7 @@ void playSequence(char* sequence)
 {
     size_t f;
     for (f = 0; f < 24; f++) {
-        LCD_1in3_Clear(BLACK);
+        // LCD_1in3_Clear(BLACK);
         
         UWORD *BlackImage;
         UDOUBLE Imagesize = LCD_HEIGHT*LCD_WIDTH*2;
