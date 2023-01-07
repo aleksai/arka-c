@@ -37,9 +37,9 @@ void func(int connfd)
             playSequence(message);
             free(message);
             message = malloc(MAX);
+            bzero(buff, MAX);
         }
         // printf(sizeof(buff));
-        // bzero(buff, MAX);
         // n = 0;
         // // copy server message in the buffer
         // while ((buff[n++] = getchar()) != '.')
