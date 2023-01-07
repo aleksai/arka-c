@@ -18,6 +18,9 @@ void func(int connfd)
 {
     char message[MAX];
     char buff[MAX];
+
+    char* message;
+    message = malloc(MAX);
     // int n;
     // infinite loop for chat
     for (;;) {
@@ -28,7 +31,7 @@ void func(int connfd)
         // print buffer which contains the client contents
         printf("From client: %s\n");
 
-        message += buff;
+        strcat(message, buff);
 
         if (strstr(buff, ".") != NULL) {
             write(connfd, "1", sizeof("1"));
