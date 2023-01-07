@@ -16,6 +16,7 @@
 // Function designed for chat between client and server.
 void func(int connfd)
 {
+    char message[MAX];
     char buff[MAX];
     // int n;
     // infinite loop for chat
@@ -26,6 +27,13 @@ void func(int connfd)
         read(connfd, buff, sizeof(buff));
         // print buffer which contains the client contents
         printf("From client: %s\n");
+
+        message += buff;
+
+        if (strstr(buff, ".") != NULL) {
+            write(connfd, "1", sizeof("1"));
+            playSequence();
+        }
         // printf(sizeof(buff));
         // bzero(buff, MAX);
         // n = 0;
